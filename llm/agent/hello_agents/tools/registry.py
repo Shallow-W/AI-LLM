@@ -1,4 +1,5 @@
 from typing import Dict, Any
+from dotenv import load_dotenv
 
 
 class ToolExecutor:
@@ -23,11 +24,12 @@ class ToolExecutor:
 
 
 if __name__ == "__main__":
+    load_dotenv()
     tool_executor = ToolExecutor()
 
     from builtin.search import search
 
-    search_description = "这是一个搜索工具，用来搜索。"
+    search_description = "一个网页搜索引擎。当你需要回答关于时事、事实以及在你的知识库中找不到的信息时，应使用此工具。"
     tool_executor.registerTool(
         "search",
         search_description,
@@ -38,3 +40,9 @@ if __name__ == "__main__":
     print(tool_executor.getAvailableTools())
 
     search_tool = tool_executor.getTool("search")
+    if search_tool:
+        result = search_tool("美国总统特朗普的生日是什么时候？")
+        print("搜索结果：")
+        print(result)
+    else:
+        print("未找到 'search' 工具。")
