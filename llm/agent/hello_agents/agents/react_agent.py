@@ -107,5 +107,5 @@ class ReactAgent:
 
 print("🚀 正在测试ReactAgent...")
 react_agent = ReactAgent(llmclient, tool_executor)
-question = "小米的最新手机是什么？"
+question = "2026年小米的最新手机是什么？"
 react_agent.run(question)
