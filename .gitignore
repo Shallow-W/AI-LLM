@@ -1,3 +1,8 @@
 data/
 .env
 __pycache__/
+.vscode/
+*.pt
+*.pth
+data/
+logs/
